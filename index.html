@@ -137,6 +137,10 @@
     .project h3 { margin: 0 0 5px; }
     .project p { margin: 0; color: var(--muted); }
     .project a { color: var(--green); font: 13px "IBM Plex Mono", monospace; white-space: nowrap; }
+    .experience { display: grid; grid-template-columns: 1fr auto; gap: 16px 28px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+    .experience h3 { margin: 0 0 4px; font-size: 1.05rem; }
+    .experience p { margin: 0; color: var(--muted); font-size: .92rem; }
+    .experience-meta { color: var(--green); font: 12px "IBM Plex Mono", monospace; text-align: right; white-space: nowrap; }
 
     footer { padding: 26px 0 34px; color: var(--muted); font: 12px "IBM Plex Mono", monospace; display: flex; justify-content: space-between; gap: 20px; }
 
@@ -149,6 +153,8 @@
       .actions { margin-bottom: 54px; }
       .about, .cards { grid-template-columns: 1fr; }
       .about { gap: 24px; }
+      .experience { grid-template-columns: 1fr; gap: 8px; }
+      .experience-meta { text-align: left; }
       .project { align-items: flex-start; flex-direction: column; gap: 12px; }
       footer { align-items: flex-start; flex-direction: column; }
     }
@@ -166,6 +172,7 @@
       <nav aria-label="Navegacion principal">
         <a href="#sobre-mi">Sobre mi</a>
         <a href="#stack">Intereses</a>
+        <a href="#experiencia">Experiencia</a>
         <a href="#proyectos">Proyectos</a>
       </nav>
     </header>
@@ -218,8 +225,16 @@
       </div>
     </section>
 
+    <section id="experiencia">
+      <div class="section-heading"><h2>Experiencia</h2><span class="section-number">03 / EXPERIENCE</span></div>
+      <article class="experience">
+        <div><h3>Analista de seguridad de red</h3><p>ALIANDO · Contrato de practicas · Presencial, Comunidad Valenciana</p></div>
+        <div class="experience-meta">mar. 2026 - jun. 2026<br>4 meses</div>
+      </article>
+    </section>
+
     <section id="proyectos">
-      <div class="section-heading"><h2>Proyectos</h2><span class="section-number">03 / WORK</span></div>
+      <div class="section-heading"><h2>Proyectos</h2><span class="section-number">04 / WORK</span></div>
       <div class="project"><div><h3>Connectix · 2526-Grup3</h3><p>Proyecto academico de infraestructura tecnologica para PYMEs.</p></div><a href="https://github.com/JacoboNavarro-hub/2526-Grup3" target="_blank" rel="noreferrer">ver repo ↗</a></div>
     </section>
 
