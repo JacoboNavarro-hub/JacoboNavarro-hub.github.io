@@ -10,13 +10,13 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --ink: #12252a;
-      --muted: #5c7074;
-      --line: #d5e2df;
-      --green: #087653;
-      --amber: #8b5e22;
-      --night: #eef3f1;
-      --panel: #ffffff;
+      --ink: #edf4ef;
+      --muted: #9baaa1;
+      --line: rgba(197, 224, 205, .15);
+      --green: #8fe0bd;
+      --amber: #e4b16d;
+      --night: #081217;
+      --panel: #0d1d24;
     }
 
     * { box-sizing: border-box; }
@@ -36,7 +36,7 @@
       inset: 0;
       z-index: -1;
       pointer-events: none;
-      background-image: linear-gradient(rgba(18, 37, 42, .035) 1px, transparent 1px), linear-gradient(90deg, rgba(18, 37, 42, .035) 1px, transparent 1px);
+      background-image: linear-gradient(rgba(143, 224, 189, .035) 1px, transparent 1px), linear-gradient(90deg, rgba(143, 224, 189, .035) 1px, transparent 1px);
       background-size: 32px 32px;
     }
 
@@ -123,6 +123,24 @@
     .experience-meta { color: var(--green); font: 12px "IBM Plex Mono", monospace; text-align: right; white-space: nowrap; }
 
     footer { padding: 26px 0 34px; color: var(--muted); font: 12px "IBM Plex Mono", monospace; display: flex; justify-content: space-between; gap: 20px; }
+
+    header { flex-direction: column; gap: 16px; }
+    nav { justify-content: center; flex-wrap: wrap; }
+    .hero-grid { text-align: center; }
+    .hero-grid h1, .hero-grid .intro { margin-left: auto; margin-right: auto; }
+    .actions { justify-content: center; }
+    .hero-stats { margin-left: auto; margin-right: auto; text-align: center; }
+    section { text-align: center; }
+    .section-heading { flex-direction: column; align-items: center; margin-bottom: 22px; }
+    .about { display: block; max-width: 700px; margin: auto; }
+    .facts { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px 24px; margin-top: 24px; padding: 16px 0 0; border-top: 1px solid var(--green); border-left: 0; }
+    .facts p { margin: 0; }
+    .study-list { max-width: 760px; margin-left: auto; margin-right: auto; text-align: left; }
+    .cards { max-width: 900px; margin: auto; text-align: left; }
+    .experience { max-width: 720px; margin: auto; text-align: center; }
+    .experience-meta { text-align: center; }
+    .project { max-width: 720px; margin: auto; justify-content: center; text-align: center; flex-direction: column; gap: 10px; }
+    footer { justify-content: center; text-align: center; }
 
     @media (max-width: 720px) {
       .wrap { width: min(100% - 28px, 560px); }
