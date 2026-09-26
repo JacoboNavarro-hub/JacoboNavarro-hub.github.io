@@ -155,79 +155,289 @@
       html { scroll-behavior: auto; }
       *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
     }
+
+    :root {
+      color-scheme: light;
+      --ink: #192b25;
+      --muted: #64736c;
+      --line: rgba(25, 43, 37, .16);
+      --green: #16745b;
+      --amber: #c65e42;
+      --night: #f4f5f0;
+      --panel: #ffffff;
+    }
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --ink: #edf3ee;
+      --muted: #a6b2ab;
+      --line: rgba(218, 233, 223, .16);
+      --green: #8fe0bd;
+      --amber: #e4b16d;
+      --night: #101916;
+      --panel: #18231e;
+    }
+    body { background: var(--night); color: var(--ink); }
+    body::before {
+      background-image: radial-gradient(rgba(22, 116, 91, .12) .7px, transparent .7px);
+      background-size: 22px 22px;
+      opacity: .42;
+    }
+    a { text-underline-offset: 4px; }
+    .wrap { width: min(1080px, calc(100% - 48px)); }
+    header {
+      flex-direction: row;
+      gap: 24px;
+      padding: 22px 0;
+      border-bottom-color: var(--line);
+    }
+    .brand { color: var(--ink); letter-spacing: 0; }
+    nav { justify-content: flex-end; align-items: center; gap: 25px; color: var(--muted); }
+    nav a:hover, .cv-link:hover { color: var(--green); }
+    .theme-toggle {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      padding: 0;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      color: var(--ink);
+      background: var(--panel);
+      cursor: pointer;
+      font-size: 19px;
+    }
+    main { padding: 0; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(240px, .8fr);
+      align-items: center;
+      gap: 64px;
+      margin: 0;
+      padding: 76px 0 68px;
+      color: var(--ink);
+      background: transparent;
+    }
+    .hero-grid h1, .hero-grid .intro { margin-left: 0; margin-right: 0; }
+    .eyebrow { color: var(--green); letter-spacing: 0; }
+    h1 { max-width: 700px; margin: 12px 0; font-size: 64px; line-height: 1.04; letter-spacing: 0; }
+    h1 span { color: var(--green); }
+    .hero-role { margin: 0 0 18px; color: var(--green); font-size: 21px; font-weight: 600; }
+    .intro { max-width: 600px; color: var(--muted); font-size: 17px; }
+    .hero-portrait {
+      position: relative;
+      justify-self: end;
+      width: min(100%, 340px);
+      padding: 12px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+    }
+    .hero-portrait::before {
+      content: "";
+      position: absolute;
+      inset: 22px -14px -14px 22px;
+      z-index: -1;
+      background: #d7e9df;
+    }
+    :root[data-theme="dark"] .hero-portrait::before { background: #29463a; }
+    .hero-portrait img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; }
+    .portrait-note { display: flex; justify-content: space-between; gap: 12px; padding: 12px 2px 0; color: var(--muted); font: 11px "IBM Plex Mono", monospace; }
+    .actions { justify-content: flex-start; gap: 10px; margin: 25px 0 0; }
+    .button {
+      padding: 11px 15px;
+      border-color: var(--green);
+      color: #fff;
+      background: var(--green);
+      transition: transform .2s ease, background .2s ease;
+    }
+    .button:hover { transform: translateY(-2px); background: #105c48; }
+    .button.secondary { border-color: var(--line); color: var(--ink); background: transparent; }
+    .button.secondary:hover { border-color: var(--green); background: var(--panel); }
+    section { padding: 48px 0; border-top-color: var(--line); }
+    .section-heading { max-width: none; margin: 0 0 24px; }
+    h2 { font-size: 32px; letter-spacing: 0; }
+    .section-number { color: var(--green); }
+    .about { display: grid; grid-template-columns: 1.2fr .8fr; gap: 44px; max-width: none; margin: 0; }
+    .about p { color: var(--muted); }
+    .facts { display: block; margin: 0; padding: 0 0 0 20px; border-top: 0; border-left: 1px solid var(--green); }
+    .facts p { margin: 0 0 14px; color: var(--ink); }
+    .facts strong { color: var(--muted); }
+    .study-list { max-width: none; margin: 30px 0 0; }
+    .study-item { border-top-color: var(--line); }
+    .study-item strong { color: var(--ink); }
+    .cards { max-width: none; margin: 0; gap: 24px; }
+    .card { min-height: 0; padding: 16px 0; border: 0; border-top: 1px solid var(--line); background: transparent; }
+    .card:hover { border-color: var(--green); }
+    .card h3 { margin-top: 9px; }
+    .card p { color: var(--muted); }
+    .card-icon { color: var(--amber); }
+    .experience { max-width: none; margin: 0; padding: 20px 0; border-bottom-color: var(--line); }
+    .experience p { color: var(--muted); }
+    .experience-meta { color: var(--green); }
+    .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .project-card { min-width: 0; border: 1px solid var(--line); background: var(--panel); }
+    .project-art { display: grid; place-items: center; height: 200px; overflow: hidden; background: #e9eee8; }
+    :root[data-theme="dark"] .project-art { background: #24322b; }
+    .project-art img { width: 100%; height: 100%; object-fit: cover; }
+    .study-art { align-content: center; justify-items: start; gap: 8px; padding: 26px; color: #19352b; background-color: #dbe9df; background-image: linear-gradient(rgba(25, 53, 43, .07) 1px, transparent 1px), linear-gradient(90deg, rgba(25, 53, 43, .07) 1px, transparent 1px); background-size: 22px 22px; font-family: "IBM Plex Mono", monospace; }
+    :root[data-theme="dark"] .study-art { color: #d6e8dd; background-color: #203c31; background-image: linear-gradient(rgba(214, 232, 221, .08) 1px, transparent 1px), linear-gradient(90deg, rgba(214, 232, 221, .08) 1px, transparent 1px); }
+    .study-art span { font-size: 11px; }
+    .study-art strong { font: 600 24px "Space Grotesk", sans-serif; }
+    .project-copy { padding: 20px; }
+    .project-copy h3 { margin: 0 0 7px; font-size: 20px; }
+    .project-copy p { margin: 0; color: var(--muted); font-size: 14px; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 7px; margin: 15px 0; }
+    .project-tags span { padding: 4px 8px; border: 1px solid var(--line); color: var(--muted); font: 10px "IBM Plex Mono", monospace; }
+    .project-link { color: var(--green); font: 12px "IBM Plex Mono", monospace; }
+    .contact-row { display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+    .contact-row p { margin: 0; color: var(--muted); }
+    .contact-links { display: flex; flex-wrap: wrap; gap: 18px; }
+    .contact-links a { color: var(--green); font: 13px "IBM Plex Mono", monospace; }
+    footer { max-width: none; margin: 0; border-top: 1px solid var(--line); }
+    h1, h2, h3, .brand, .eyebrow { letter-spacing: 0; }
+    @media (max-width: 720px) {
+      .wrap { width: min(100% - 32px, 560px); }
+      header { align-items: flex-start; flex-direction: column; padding: 18px 0; }
+      nav { justify-content: flex-start; flex-wrap: wrap; gap: 12px 16px; font-size: 12px; }
+      .theme-toggle { width: 34px; height: 34px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 32px; padding: 48px 0 42px; }
+      .hero-portrait { order: 1; justify-self: start; width: min(72%, 260px); }
+      .hero-copy { order: 2; }
+      h1 { font-size: 44px; }
+      .hero-role { font-size: 18px; }
+      section { padding: 38px 0; }
+      h2 { font-size: 27px; }
+      .about { display: block; }
+      .facts { display: flex; flex-wrap: wrap; gap: 14px 22px; margin-top: 24px; padding: 20px 0 0; border-top: 1px solid var(--green); border-left: 0; }
+      .facts p { margin: 0; }
+      .study-list { grid-template-columns: 1fr; }
+      .cards { grid-template-columns: 1fr; gap: 4px; }
+      .experience { grid-template-columns: 1fr; gap: 8px; }
+      .experience-meta { text-align: left; }
+      .project-grid { grid-template-columns: 1fr; }
+      .project-art { height: 180px; }
+      .contact-row { align-items: flex-start; flex-direction: column; }
+      footer { align-items: flex-start; flex-direction: column; }
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
-      <a class="brand" href="#top">JNA / SYS</a>
+      <a class="brand" href="#top">JAC / NAV</a>
       <nav aria-label="Navegacion principal">
-        <a href="#sobre-mi">Sobre mi</a>
-        <a href="#stack">Intereses</a>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#stack">Áreas</a>
         <a href="#experiencia">Experiencia</a>
         <a href="#proyectos">Proyectos</a>
-        <a class="cv-link" href="cv.pdf" target="_blank" rel="noreferrer" aria-label="Abrir curriculum vitae">CV ↗</a>
+        <a class="cv-link" href="#contacto">Contacto</a>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar tema" title="Cambiar tema">◐</button>
       </nav>
     </header>
 
     <main id="top">
       <div class="hero-grid">
-        <div>
+        <div class="hero-copy">
           <p class="eyebrow">Estudiante de ciberseguridad · Valencia</p>
-          <h1>Sistemas, redes y <span>ciberseguridad.</span></h1>
-          <p class="intro">Soy Jacobo Navarro y estudio ciberseguridad. Me interesa seguir aprendiendo sobre sistemas, redes y las distintas areas de la seguridad informatica.</p>
+          <h1>Jacobo Navarro</h1>
+          <p class="hero-role">Sistemas, redes y seguridad informática.</p>
+          <p class="intro">Vengo de ASIX y estudio ciberseguridad. Me interesa entender cómo se conectan y protegen los sistemas, practicar en entornos controlados y documentar lo que voy aprendiendo.</p>
           <div class="actions">
-            <a class="button" href="https://www.linkedin.com/in/jacobo-navarro-de-alfonso-9198003b6/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+            <a class="button" href="cv.pdf" target="_blank" rel="noreferrer">Ver CV ↗</a>
             <a class="button secondary" href="https://github.com/JacoboNavarro-hub" target="_blank" rel="noreferrer">GitHub ↗</a>
           </div>
         </div>
-      </div>
+        <figure class="hero-portrait">
+          <img src="https://avatars.githubusercontent.com/u/231866797?v=4" alt="Foto de perfil de Jacobo Navarro" width="340" height="340">
+          <figcaption class="portrait-note"><span>CARLET, VALENCIA</span><span>39°13′ N</span></figcaption>
+        </figure>
       </div>
     </main>
 
     <section id="sobre-mi">
-      <div class="section-heading"><h2>Sobre mi</h2><span class="section-number">01 / PROFILE</span></div>
+      <div class="section-heading"><h2>Sobre mí</h2><span class="section-number">01 / PERFIL</span></div>
       <div class="about">
-        <p>Actualmente estudio ciberseguridad y quiero ampliar mis conocimientos en sistemas, redes, defensa, analisis y el resto de areas relacionadas con la seguridad informatica.</p>
+        <p>Mi formación en administración de sistemas me dio una base práctica para comprender infraestructura y redes. Ahora estoy ampliándola con ciberseguridad, análisis y defensa, con especial interés por aprender haciendo.</p>
         <div class="facts">
-          <p><strong>Formacion</strong>Ciberseguridad en curso</p>
-          <p><strong>Formacion previa</strong>ASIX · CIPFP Mislata</p>
-          <p><strong>Base</strong>Carlet, Valencia</p>
-          <p><strong>Contacto</strong>jacobonavarrodealfonso@gmail.com</p>
+          <p><strong>Formación actual</strong>Ciberseguridad</p>
+          <p><strong>Formación previa</strong>ASIX · CIPFP Mislata</p>
+          <p><strong>Ubicación</strong>Carlet, Valencia</p>
+          <p><strong>Contacto</strong><a href="mailto:jacobonavarrodealfonso@gmail.com">jacobonavarrodealfonso@gmail.com</a></p>
         </div>
       </div>
       <div class="study-list" aria-label="Conocimientos trabajados">
         <div class="study-item"><strong>Sistemas</strong>Linux, Windows Server y servicios de infraestructura.</div>
-        <div class="study-item"><strong>Redes</strong>Direccionamiento, protocolos y diagnostico de conexiones.</div>
-        <div class="study-item"><strong>Virtualizacion</strong>Entornos de prueba y administracion con Proxmox.</div>
-        <div class="study-item"><strong>Herramientas</strong>Git, GitHub, Python y documentacion tecnica.</div>
+        <div class="study-item"><strong>Redes</strong>Direccionamiento, protocolos y diagnóstico de conexiones.</div>
+        <div class="study-item"><strong>Virtualización</strong>Entornos de prueba y administración con Proxmox.</div>
+        <div class="study-item"><strong>Herramientas</strong>Git, GitHub, Python y documentación técnica.</div>
       </div>
     </section>
 
     <section id="stack">
-      <div class="section-heading"><h2>Areas de interes</h2><span class="section-number">02 / FOCUS AREAS</span></div>
+      <div class="section-heading"><h2>Áreas de interés</h2><span class="section-number">02 / ENFOQUE</span></div>
       <div class="cards">
-        <article class="card"><span class="card-icon">01</span><h3>Network security</h3><p>Redes, protocolos, segmentacion y diagnostico de conexiones.</p></article>
-        <article class="card"><span class="card-icon">02</span><h3>Security operations</h3><p>Alertas, logs, monitorizacion y respuesta ante incidentes.</p></article>
-        <article class="card"><span class="card-icon">03</span><h3>Infrastructure</h3><p>Linux, virtualizacion, servicios y medidas de hardening.</p></article>
+        <article class="card"><span class="card-icon">01</span><h3>Seguridad de redes</h3><p>Protocolos, segmentación y diagnóstico de conexiones.</p></article>
+        <article class="card"><span class="card-icon">02</span><h3>Operaciones de seguridad</h3><p>Logs, monitorización, alertas y respuesta a incidentes.</p></article>
+        <article class="card"><span class="card-icon">03</span><h3>Sistemas e infraestructura</h3><p>Linux, virtualización, servicios y hardening.</p></article>
       </div>
     </section>
 
     <section id="experiencia">
-      <div class="section-heading"><h2>Experiencia</h2><span class="section-number">03 / EXPERIENCE</span></div>
+      <div class="section-heading"><h2>Experiencia</h2><span class="section-number">03 / EXPERIENCIA</span></div>
       <article class="experience">
-        <div><h3>Analista de seguridad de red</h3><p>ALIANDO · Contrato de practicas · Presencial, Comunidad Valenciana</p></div>
-        <div class="experience-meta">mar. 2026 - jun. 2026</div>
+        <div><h3>Analista de seguridad de red</h3><p>ALIANDO · Prácticas · Comunidad Valenciana</p></div>
+        <div class="experience-meta">MAR 2026 — JUN 2026</div>
       </article>
     </section>
 
     <section id="proyectos">
-      <div class="section-heading"><h2>Proyectos</h2><span class="section-number">04 / WORK</span></div>
-      <div class="project"><div><h3>Connectix · 2526-Grup3</h3><p>Proyecto academico de infraestructura tecnologica para PYMEs.</p></div><a href="https://github.com/JacoboNavarro-hub/2526-Grup3" target="_blank" rel="noreferrer">ver repo ↗</a></div>
+      <div class="section-heading"><h2>Proyectos</h2><span class="section-number">04 / TRABAJO</span></div>
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="project-art"><img src="https://raw.githubusercontent.com/JacoboNavarro-hub/2526-Grup3/main/im%C3%A1genes/logo.png" alt="Logotipo de Connectix" loading="lazy"></div>
+          <div class="project-copy">
+            <h3>Connectix</h3>
+            <p>Proyecto académico de infraestructura tecnológica integral para PYMEs, con documentación de negocio, servidor Proxmox y gestión del desarrollo.</p>
+            <div class="project-tags"><span>PROXMOX</span><span>INFRAESTRUCTURA</span><span>TRABAJO EN EQUIPO</span></div>
+            <a class="project-link" href="https://github.com/JacoboNavarro-hub/2526-Grup3" target="_blank" rel="noreferrer">Explorar proyecto ↗</a>
+          </div>
+        </article>
+        <article class="project-card">
+          <div class="project-art study-art" role="img" aria-label="Portada tipográfica de los apuntes de ciberseguridad">
+            <span>JAC / NAV · CUADERNO 01</span><strong>Cybersecurity<br>Study</strong><span>REDES · LINUX · PYTHON · CLOUD</span>
+          </div>
+          <div class="project-copy">
+            <h3>Cybersecurity Study</h3>
+            <p>Repositorio personal de teoría y apuntes sobre redes, seguridad, Linux, Python, tráfico, cloud y hacking ético.</p>
+            <div class="project-tags"><span>APRENDIZAJE</span><span>DOCUMENTACIÓN</span></div>
+            <a class="project-link" href="https://github.com/JacoboNavarro-hub/cybersecurity-study" target="_blank" rel="noreferrer">Ver apuntes ↗</a>
+          </div>
+        </article>
+      </div>
     </section>
 
-    <footer><span>© 2026 Jacobo Navarro</span></footer>
-  </div>
+    <section id="contacto">
+      <div class="section-heading"><h2>Contacto</h2><span class="section-number">05 / CONVERSEMOS</span></div>
+      <div class="contact-row">
+        <p>Disponible para aprender, colaborar y afrontar nuevos retos en ciberseguridad.</p>
+        <div class="contact-links">
+          <a href="mailto:jacobonavarrodealfonso@gmail.com">Email ↗</a>
+          <a href="https://www.linkedin.com/in/jacobo-navarro-de-alfonso-9198003b6/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+          <a href="https://github.com/JacoboNavarro-hub" target="_blank" rel="noreferrer">GitHub ↗</a>
+        </div>
+      </div>
+    </section>
 
+    <footer><span>© 2026 Jacobo Navarro</span><span>Valencia, España</span></footer>
+  </div>
+  <script>
+    const themeToggle = document.querySelector("#theme-toggle");
+    const savedTheme = localStorage.getItem("portfolio-theme");
+    if (savedTheme === "dark") document.documentElement.dataset.theme = "dark";
+    themeToggle.addEventListener("click", () => {
+      const isDark = document.documentElement.dataset.theme !== "dark";
+      document.documentElement.dataset.theme = isDark ? "dark" : "light";
+      localStorage.setItem("portfolio-theme", isDark ? "dark" : "light");
+    });
+  </script>
 </body>
 </html>
